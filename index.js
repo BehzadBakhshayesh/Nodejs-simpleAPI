@@ -1,8 +1,9 @@
 const http = require("node:http");
 const fs = require("node:fs");
+const url = require("node:url");
 
 const server = http.createServer((req, res) => {
-  const pathName = req.url;
+  const pathName = url.parse(req.url, true);
 
   if (pathName === "/") {
     res.end("this is ROOT");

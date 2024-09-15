@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const url = require("node:url");
 
 const server = http.createServer((req, res) => {
-  const pathName = url.parse(req.url, true);
+  const pathName = url.parse(req.url, true).pathname;
 
   if (pathName === "/") {
     res.end("this is ROOT");
